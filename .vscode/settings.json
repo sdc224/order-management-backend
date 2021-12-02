@@ -39,6 +39,13 @@
 
 	// Extension Level Settings
 
-	"cSpell.words": ["Injectable", "microservices", "nestjs", "mysql"],
+	"cSpell.words": [
+		"typeorm",
+		"ormconfig",
+		"Injectable",
+		"microservices",
+		"nestjs",
+		"mysql"
+	],
 	"editor.detectIndentation": false
 }
