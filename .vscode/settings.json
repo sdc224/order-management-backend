@@ -1,8 +1,8 @@
 {
 	"files.eol": "\r\n",
 	"files.associations": {
-		".babelrc": "jsonc",
 		".eslintrc": "jsonc",
+		".huskyrc": "jsonc",
 		".prettierrc": "jsonc",
 
 		".stylelintrc": "json",
@@ -29,12 +29,10 @@
 		".git": true,
 		".eslintcache": true,
 		"build": true,
-		"bower_components": true,
 		"node_modules": true,
 		"npm-debug.log.*": true,
 		"__test__/__snapshots__": true,
-		"yarn.lock": true,
-		"*.{css,sass,scss}.d.ts": true
+		"yarn.lock": true
 	},
 
 	// Extension Level Settings

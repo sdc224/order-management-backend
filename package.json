@@ -11,6 +11,7 @@
 	"license": "MIT",
 	"scripts": {
 		"build:prod": "tsc -p tsconfig.build.json",
+		"commit": "cz",
 		"postbuild:prod": "copyfiles --up 1 src/**/*.json dist",
 		"start:hmr": "node dist/main.hmr.ts",
 		"start:dev": "ts-node src/main.ts",
@@ -68,7 +69,7 @@
 		"morgan": "^1.10.0",
 		"mysql2": "^2.3.3",
 		"nats": "^2.2.0",
-		"nestjs-i18n": "^8.1.6",
+		"nestjs-i18n": "^8.2.1",
 		"passport": "^0.4.1",
 		"passport-jwt": "^4.0.0",
 		"reflect-metadata": "^0.1.13",
@@ -105,6 +106,7 @@
 		"clean-webpack-plugin": "^4.0.0",
 		"copyfiles": "^2.4.1",
 		"cross-env": "^7.0.3",
+		"cz-conventional-changelog": "3.3.0",
 		"eslint": "^7.32.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-import": "^2.24.2",
@@ -149,5 +151,10 @@
 		"*.ts": [
 			"eslint --fix"
 		]
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
 	}
 }
