@@ -81,3 +81,6 @@ db-data
 # Vuepress
 .temp
 .cache
+
+# Environment Settings Files
+.env.*

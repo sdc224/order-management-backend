@@ -7,6 +7,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { I18nJsonParser, I18nModule } from "nestjs-i18n";
 import path from "path";
 
+import { findEnvFile } from "./environments";
 import { contextMiddleware } from "./middlewares";
 import { AuthModule } from "./modules/auth/auth.module";
 import { HealthCheckerModule } from "./modules/health-checker/health-checker.module";
@@ -22,7 +23,7 @@ import { SharedModule } from "./shared/shared.module";
 		PostModule,
 		ConfigModule.forRoot({
 			isGlobal: true,
-			envFilePath: process.env.NODE_ENV === "test" ? ".test.env" : ".env"
+			envFilePath: findEnvFile()
 		}),
 		TypeOrmModule.forRootAsync({
 			imports: [SharedModule],
