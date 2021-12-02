@@ -30,7 +30,8 @@ node_modules
 .DS_Store
 
 # App packaged
-build/
+build/Release
+dist/
 
 .idea
 npm-debug.log.*

@@ -38,12 +38,15 @@
 	// Extension Level Settings
 
 	"cSpell.words": [
-		"typeorm",
-		"ormconfig",
+		"copyfiles",
 		"Injectable",
 		"microservices",
+		"mysql",
 		"nestjs",
-		"mysql"
+		"ormconfig",
+		"postbuild",
+		"prestart",
+		"typeorm"
 	],
 	"editor.detectIndentation": false
 }
