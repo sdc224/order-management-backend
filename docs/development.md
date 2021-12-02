@@ -1,23 +1,23 @@
 # Setup and development
 
-- [Setup and development](#setup-and-development)
-  - [First-time setup](#first-time-setup)
-  - [Installation](#installation)
-    - [Database](#database)
-    - [Configuration](#configuration)
-    - [Dev server](#dev-server)
-  - [Generators](#generators)
-  - [Docker](#docker)
-    - [Docker installation](#docker-installation)
-    - [Docker-compose installation](#docker-compose-installation)
-    - [Run](#run)
+-   [Setup and development](#setup-and-development)
+    -   [First-time setup](#first-time-setup)
+    -   [Installation](#installation)
+        -   [Database](#database)
+        -   [Configuration](#configuration)
+        -   [Dev server](#dev-server)
+    -   [Generators](#generators)
+    -   [Docker](#docker)
+        -   [Docker installation](#docker-installation)
+        -   [Docker-compose installation](#docker-compose-installation)
+        -   [Run](#run)
 
 ## First-time setup
 
 Make sure you have the following installed:
 
-- [Node](https://nodejs.org/en/) (at least the latest LTS)
-- [Yarn](https://yarnpkg.com/lang/en/docs/install/) (at least 1.0)
+-   [Node](https://nodejs.org/en/) (at least the latest LTS)
+-   [Yarn](https://yarnpkg.com/lang/en/docs/install/) (at least 1.0)
 
 ## Installation
 
@@ -39,8 +39,8 @@ Before start install PostgreSQL and fill correct configurations in `.env` file
 ```env
 DB_HOST=localhost
 DB_PORT=5432
-DB_USERNAME=postgres
-DB_PASSWORD=postgres
+DB_USERNAME=mysql
+DB_PASSWORD=mysql
 DB_DATABASE=nest_boilerplate
 ```
 
@@ -89,6 +89,7 @@ nest generate service users
 nest g class users
 
 ```
+
 > Note: if you love generators then you can find full list of command in official [Nest-cli Docs](https://docs.nestjs.com/cli/usages#generate-alias-g).
 
 ## Docker
@@ -99,9 +100,9 @@ if you are familiar with [docker](https://www.docker.com/) and [docker-compose](
 
 Download docker from Official website
 
-- Mac <https://docs.docker.com/docker-for-mac/install/>
-- Windows <https://docs.docker.com/docker-for-windows/install/>
-- Ubuntu <https://docs.docker.com/install/linux/docker-ce/ubuntu/>
+-   Mac <https://docs.docker.com/docker-for-mac/install/>
+-   Windows <https://docs.docker.com/docker-for-windows/install/>
+-   Ubuntu <https://docs.docker.com/install/linux/docker-ce/ubuntu/>
 
 ### Docker-compose installation
 
@@ -120,9 +121,9 @@ PORT=3000 docker-compose up
 Navigate to <http://localhost:8080> and connect to you database with the following configurations
 
 ```text
-host: postgres
-user: postgres
-pass: postgres
+host: mysql
+user: mysql
+pass: mysql
 ```
 
 create database `nest_boilerplate` and your application fully is ready to use.

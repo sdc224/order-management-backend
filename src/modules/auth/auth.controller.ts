@@ -75,6 +75,6 @@ export class AuthController {
 	@ApiBearerAuth()
 	@ApiOkResponse({ type: UserDto, description: "current user info" })
 	getCurrentUser(@AuthUser() user: UserEntity): UserDto {
-		return user.toDto();
+		return user?.toDto();
 	}
 }

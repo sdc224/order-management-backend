@@ -1,15 +1,18 @@
 export const findEnvFile = (): string => {
 	const envFilePath = ".env";
+	let nodeEnv = process.env.NODE_ENV;
 
-	switch (process.env.NODE_ENV) {
-		case "DEVELOPMENT":
-			return `${envFilePath}.development`;
+	if (!nodeEnv && typeof nodeEnv !== "string") {
+		return envFilePath;
+	}
 
-		case "TEST":
-			return `${envFilePath}.test`;
+	nodeEnv = nodeEnv.toLowerCase();
 
-		case "PRODUCTION":
-			return `${envFilePath}.production`;
+	switch (nodeEnv) {
+		case "development":
+		case "test":
+		case "production":
+			return `${envFilePath}.${nodeEnv}`;
 
 		default:
 			return envFilePath;

@@ -798,7 +798,7 @@
 
 "@nestjs/passport@^8.0.1":
   version "8.0.1"
-  resolved "https://registry.npmjs.org/@nestjs/passport/-/passport-8.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/@nestjs/passport/-/passport-8.0.1.tgz#f1ed39a19489f794d1fe3fef592b4523bc48da68"
   integrity sha512-vn/ZJLXQKvSf9D0BvEoNFJLfzl9AVqfGtDyQMfWDLbaNpoEB2FyeaHGxdiX6H71oLSrQV78c/yuhfantzwdjdg==
 
 "@nestjs/platform-express@^8.0.6":

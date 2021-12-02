@@ -5,6 +5,7 @@ import { RoleType } from "../../constants/role-type";
 import { UseDto, VirtualColumn } from "../../decorators";
 import type { UserDtoOptions } from "./dto/user-dto";
 import { UserDto } from "./dto/user-dto";
+// import { UserRoleEntity } from "./user-role.entity";
 
 @Entity({ name: "users" })
 @UseDto(UserDto)
@@ -17,6 +18,14 @@ export class UserEntity extends AbstractEntity<UserDto, UserDtoOptions> {
 
 	@Column({ type: "enum", enum: RoleType, default: RoleType.USER })
 	role: RoleType;
+
+	// @OneToMany(() => UserRoleEntity, (userRole) => userRole.user, {
+	// 	cascade: true,
+	// 	onDelete: "CASCADE",
+	// 	onUpdate: "CASCADE"
+	// })
+	// @JoinColumn({ referencedColumnName: "user_id" })
+	// userRole!: UserRoleEntity;
 
 	@Column({ unique: true, nullable: true })
 	email?: string;
