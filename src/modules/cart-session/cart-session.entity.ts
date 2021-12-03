@@ -3,7 +3,7 @@ import { Column, Entity, JoinColumn, OneToOne } from "typeorm";
 import { AbstractEntity } from "../../common/abstract.entity";
 import { UserEntity } from "../user/user.entity";
 
-@Entity()
+@Entity({ name: "cart_session" })
 export class CartSessionEntity extends AbstractEntity {
 	@OneToOne(() => UserEntity)
 	@JoinColumn()
