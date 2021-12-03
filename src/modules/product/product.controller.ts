@@ -2,7 +2,7 @@ import { Controller, Get, Query, ValidationPipe } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 
 import type { PageDto } from "../../common/dto/page.dto";
-import type { ProductDto } from "./dto/product-dto";
+import type { ProductDto } from "./dto/product.dto";
 import { ProductsPageOptionsDto } from "./dto/products-page-options.dto";
 import { ProductService } from "./product.service";
 

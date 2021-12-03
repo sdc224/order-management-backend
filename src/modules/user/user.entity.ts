@@ -3,8 +3,8 @@ import { Column, Entity } from "typeorm";
 import { AbstractEntity } from "../../common/abstract.entity";
 import { RoleType } from "../../constants/role-type";
 import { UseDto, VirtualColumn } from "../../decorators";
-import type { UserDtoOptions } from "./dto/user-dto";
-import { UserDto } from "./dto/user-dto";
+import type { UserDtoOptions } from "./dto/user.dto";
+import { UserDto } from "./dto/user.dto";
 // import { UserRoleEntity } from "./user-role.entity";
 
 @Entity({ name: "users" })

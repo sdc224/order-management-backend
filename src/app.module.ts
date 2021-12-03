@@ -10,6 +10,7 @@ import path from "path";
 import { findEnvFile } from "./environments";
 import { contextMiddleware } from "./middlewares";
 import { AuthModule } from "./modules/auth/auth.module";
+import { CartModule } from "./modules/cart/cart.module";
 import { HealthCheckerModule } from "./modules/health-checker/health-checker.module";
 import { PostModule } from "./modules/post/post.module";
 import { ProductModule } from "./modules/product/product.module";
@@ -23,6 +24,7 @@ import { SharedModule } from "./shared/shared.module";
 		UserModule,
 		PostModule,
 		ProductModule,
+		CartModule,
 		ConfigModule.forRoot({
 			isGlobal: true,
 			envFilePath: findEnvFile()

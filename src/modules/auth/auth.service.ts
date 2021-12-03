@@ -4,7 +4,7 @@ import { JwtService } from "@nestjs/jwt";
 import { UserNotFoundException } from "../../exceptions/user-not-found.exception";
 import { UtilsProvider } from "../../providers/utils.provider";
 import { ApiConfigService } from "../../shared/services/api-config.service";
-import type { UserDto } from "../user/dto/user-dto";
+import type { UserDto } from "../user/dto/user.dto";
 import type { UserEntity } from "../user/user.entity";
 import { UserService } from "../user/user.service";
 import { TokenPayloadDto } from "./dto/TokenPayloadDto";

@@ -17,9 +17,10 @@ import { ApiFile } from "../../decorators/swagger.schema";
 import { AuthGuard } from "../../guards/auth.guard";
 import { AuthUserInterceptor } from "../../interceptors/auth-user-interceptor.service";
 import { IFile } from "../../interfaces";
-import { UserDto } from "../user/dto/user-dto";
+import { UserDto } from "../user/dto/user.dto";
 import { UserEntity } from "../user/user.entity";
 import { UserService } from "../user/user.service";
+import { Auth } from "./../../decorators/http.decorators";
 import { AuthService } from "./auth.service";
 import { LoginPayloadDto } from "./dto/LoginPayloadDto";
 import { UserLoginDto } from "./dto/UserLoginDto";
@@ -67,11 +68,12 @@ export class AuthController {
 		});
 	}
 
+	@UseGuards(AuthGuard)
+	@Auth([])
+	@UseInterceptors(AuthUserInterceptor)
 	@Version("1")
 	@Get("me")
 	@HttpCode(HttpStatus.OK)
-	@UseGuards(AuthGuard)
-	@UseInterceptors(AuthUserInterceptor)
 	@ApiBearerAuth()
 	@ApiOkResponse({ type: UserDto, description: "current user info" })
 	getCurrentUser(@AuthUser() user: UserEntity): UserDto {

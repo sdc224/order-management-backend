@@ -3,7 +3,7 @@ import type { FindConditions } from "typeorm";
 
 import type { PageDto } from "../../common/dto/page.dto";
 import type { Optional } from "../../types";
-import type { ProductDto } from "./dto/product-dto";
+import type { ProductDto } from "./dto/product.dto";
 import type { ProductsPageOptionsDto } from "./dto/products-page-options.dto";
 import type { ProductEntity } from "./product.entity";
 import { ProductRepository } from "./product.repository";

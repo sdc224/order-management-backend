@@ -9,7 +9,7 @@ import { AwsS3Service } from "../../shared/services/aws-s3.service";
 import { ValidatorService } from "../../shared/services/validator.service";
 import type { Optional } from "../../types";
 import type { UserRegisterDto } from "../auth/dto/UserRegisterDto";
-import type { UserDto } from "./dto/user-dto";
+import type { UserDto } from "./dto/user.dto";
 import type { UsersPageOptionsDto } from "./dto/users-page-options.dto";
 import type { UserEntity } from "./user.entity";
 import { UserRepository } from "./user.repository";

@@ -4,7 +4,7 @@ import { AbstractEntity } from "../../common/abstract.entity";
 import { UseDto } from "../../decorators";
 import { InventoryEntity } from "../inventory/inventory.entity";
 import { ProductTypeEntity } from "../product-type/product-type.entity";
-import { ProductDto } from "./dto/product-dto";
+import { ProductDto } from "./dto/product.dto";
 
 @Entity({ name: "products" })
 @UseDto(ProductDto)
