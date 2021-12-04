@@ -4,6 +4,7 @@ import type { FindConditions } from "typeorm";
 import type { PageDto } from "../../common/dto/page.dto";
 import type { Optional } from "../../types";
 import type { ProductDto } from "./dto/product.dto";
+import type { ProductReqDto } from "./dto/product-req.dto";
 import type { ProductsPageOptionsDto } from "./dto/products-page-options.dto";
 import type { ProductEntity } from "./product.entity";
 import { ProductRepository } from "./product.repository";
@@ -38,5 +39,28 @@ export class ProductService {
 			.paginate(pageOptionsDto);
 
 		return items.toPageDto(pageMetaDto);
+	}
+
+	async getListOfProduct(product: ProductReqDto[]): Promise<ProductEntity[]> {
+		return this.productRepository
+			.createQueryBuilder("product")
+			.leftJoinAndSelect("product.inventory", "inventory")
+			.where("product.id IN (:productId)", {
+				productId: product.map((p) => p.id).join(",")
+			})
+			.getMany();
+	}
+
+	async isProductAvailable(
+		product: ProductReqDto,
+		quantity: number
+	): Promise<ProductEntity | undefined> {
+		return this.productRepository
+			.createQueryBuilder("product")
+			.leftJoinAndSelect("product.inventory", "inventory")
+			.where("product.id = :productId", { productId: product.id })
+			.andWhere("product.name = :name", { name: product.name })
+			.andWhere("inventory.quantity > :quantity", { quantity })
+			.getOne();
 	}
 }

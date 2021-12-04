@@ -1,5 +1,5 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { IsString } from "class-validator";
+import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
+import { IsNumber, IsString } from "class-validator";
 
 export class ProductReqDto {
 	@IsString()
@@ -9,4 +9,8 @@ export class ProductReqDto {
 	@IsString()
 	@ApiProperty()
 	readonly name: string;
+
+	@IsNumber()
+	@ApiPropertyOptional({ default: 1 })
+	readonly quantity?: number;
 }

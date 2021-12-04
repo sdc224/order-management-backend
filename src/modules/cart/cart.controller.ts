@@ -7,9 +7,11 @@ import {
 	Post
 } from "@nestjs/common";
 import { ApiOkResponse, ApiTags } from "@nestjs/swagger";
+import { DeleteResult } from "typeorm";
 
 import { RoleType } from "../../constants/role-type";
 import { Auth, AuthUser } from "../../decorators";
+import { ProductDeleteReqDto } from "./../product/dto/product-delete-req.dto";
 import { ProductReqDto } from "./../product/dto/product-req.dto";
 import { UserEntity } from "./../user/user.entity";
 // import { ProductsPageOptionsDto } from "./dto/products-page-options.dto";
@@ -33,7 +35,9 @@ export class CartController {
 	async getCartProducts(
 		@AuthUser() user: UserEntity
 	): Promise<CartProductDto[]> {
-		return this.cartService.getCartProducts(user);
+		const products = await this.cartService.getCartProducts(user);
+
+		return products.map((p) => p.toDto());
 	}
 
 	@Post("add")
@@ -47,13 +51,47 @@ export class CartController {
 		@AuthUser() user: UserEntity,
 		@Body() product: ProductReqDto
 	): Promise<CartDto> {
-		const productEntity = await this.cartService.getProduct(product);
+		const productEntityAvailable =
+			await this.cartService.getProductAvailability(
+				product,
+				product.quantity || 1
+			);
+
+		if (!productEntityAvailable) {
+			throw new Error("No Product Found!");
+		}
+
+		return this.cartService.createOrUpdateCart(
+			user,
+			productEntityAvailable,
+			product.quantity
+		);
+	}
+
+	@Post("delete")
+	@Auth([RoleType.USER])
+	@HttpCode(HttpStatus.OK)
+	@ApiOkResponse({
+		type: DeleteResult,
+		description: "Cart delete info"
+	})
+	async delete(
+		@AuthUser() user: UserEntity,
+		@Body() productDeleteRequest: ProductDeleteReqDto
+	): Promise<DeleteResult> {
+		const productEntity = await this.cartService.getListOfProduct(
+			productDeleteRequest.product
+		);
 
 		if (!productEntity) {
 			throw new Error("No Product Found!");
 		}
 
-		return this.cartService.createOrUpdateCart(user, productEntity, 1);
+		return this.cartService.deleteCartProducts(
+			user,
+			productEntity,
+			productDeleteRequest.deleteAll
+		);
 	}
 
 	@Get("reset")

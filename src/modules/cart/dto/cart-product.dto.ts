@@ -13,13 +13,13 @@ export class CartProductDto extends AbstractDto {
 	quantity?: number;
 
 	@ApiPropertyOptional()
-	cartSessionEntity?: CartSessionEntity;
+	cartSession?: CartSessionEntity;
 
 	constructor(cartProduct: CartProductEntity) {
 		super(cartProduct);
 
 		this.product = cartProduct.product;
 		this.quantity = cartProduct.quantity;
-		this.cartSessionEntity = cartProduct.cartSession;
+		this.cartSession = cartProduct.cartSession;
 	}
 }
