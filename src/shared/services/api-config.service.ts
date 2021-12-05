@@ -92,6 +92,9 @@ export class ApiConfigService {
 			keepConnectionAlive: !this.isTest,
 			dropSchema: this.isTest,
 			type: "mysql",
+			extra: {
+				decimalNumbers: true
+			},
 			host: this.getString("DB_HOST"),
 			port: this.getNumber("DB_PORT"),
 			username: this.getString("DB_USERNAME"),
