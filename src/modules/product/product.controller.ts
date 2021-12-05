@@ -6,7 +6,7 @@ import type { ProductDto } from "./dto/product.dto";
 import { ProductsPageOptionsDto } from "./dto/products-page-options.dto";
 import { ProductService } from "./product.service";
 
-@Controller("products")
+@Controller("/api/products")
 @ApiTags("products")
 export class ProductController {
 	constructor(private productService: ProductService) {}

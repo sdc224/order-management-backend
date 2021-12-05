@@ -20,7 +20,7 @@ import { CartDto } from "./dto/cart.dto";
 import { CartDeleteDto } from "./dto/cart-delete.dto";
 import { CartProductDto } from "./dto/cart-product.dto";
 
-@Controller("cart")
+@Controller("/api/cart")
 @ApiTags("cart")
 export class CartController {
 	constructor(private cartService: CartService) {}

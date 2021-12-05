@@ -17,7 +17,7 @@ import { UsersPageOptionsDto } from "./dto/users-page-options.dto";
 import { UserEntity } from "./user.entity";
 import { UserService } from "./user.service";
 
-@Controller("users")
+@Controller("/api/users")
 @ApiTags("users")
 export class UserController {
 	constructor(
